@@ -5,27 +5,37 @@ import {  Button, Form, Input, Modal, notification  } from 'antd';
 import ModalUserRegister from "./ModalUserRegister";
 import { showError } from "../alerts";
 import logo from '../assets/logo.png'
+import ModalForgotPassword from "./ModalForgotPassword";
 
 function LoginPage() {
   const { signin } = useContext(AuthContext);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [recoverPassword,setRecoverPassword] = useState(false)
+  const [showInvalidAccount,setShowInvalidAccount] = useState(false)
 
   const handleOk = () => {
     setIsModalOpen(false);
+    setRecoverPassword(false);
   };
   const handleCancel = () => {
     setIsModalOpen(false);
+    setRecoverPassword(false);
   };
 
   const onFinish = (values:any) => { 
     signin(values).then((res:any)=>{
     }).catch((err:any)=>{
-      notification.error({
-        message: 'Error',
-        description:
-          showError(err.response),
-      });
+      if(err.response.data.error.code=== 40004){
+        setShowInvalidAccount(true)
+      }else{
+        notification.error({
+          message: 'Error',
+          description:
+            showError(err.response),
+        });
+      }
+
     })
   };
   const onFinishFailed = (errorInfo:any) => {
@@ -79,17 +89,33 @@ function LoginPage() {
             <Button type="primary" htmlType="submit">
               Ingresar
             </Button>
-
-
             <Button type="link" onClick={()=>setIsModalOpen(true)}>
               Registrarse
             </Button>
           </Form.Item>
         </Form>
-
+        <Button type="link" onClick={()=>setRecoverPassword(true)}>
+          ¿Has olvidado la contraseña? Recupérala aquí
+        </Button>
       </div>
-      <Modal footer={[]} className='modal-registered'title="Detalle del partido" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-        <ModalUserRegister setIsModalOpen={setIsModalOpen}/>
+      <Modal footer={[]} className='modal-registered' open={isModalOpen || recoverPassword} onOk={handleOk} onCancel={handleCancel}>
+        {isModalOpen && <ModalUserRegister setIsModalOpen={setIsModalOpen}/>}
+        {recoverPassword && <ModalForgotPassword setRecoverPassword={setRecoverPassword} />}
+      </Modal>
+      <Modal 
+        open={showInvalidAccount}
+        onOk={()=>setShowInvalidAccount(false)}
+        onCancel={()=>setShowInvalidAccount(false)}
+        footer={
+          [
+            <Button key="back" onClick={()=>setShowInvalidAccount(false)}>
+             Cerrar
+            </Button>,
+          ]
+        }
+      >
+        <h1>¡Hola!</h1>
+        <h3>Para comenzar tu experiencia en esta Copa América, recuerda que necesitas realizar una recarga en BetPlay por un valor mínimo de 10.000 pesos. Si ya has hecho la recarga, por favor, ponte en contacto con el administrador de la actividad para resolver cualquier duda.</h3>
       </Modal>
     </div>
   );

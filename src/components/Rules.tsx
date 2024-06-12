@@ -18,9 +18,18 @@ function Rules() {
         <p>Ejemplo: Si predices que el partido terminará 2-1 a favor del equipo local y el resultado es exactamente 2-1, obtienes 5 puntos adicionales además de los puntos anteriores.</p>
         <li><b>2 puntos de bonificación en caso de empate no exacto:</b></li>
         <p>Ejemplo: Si predices que el partido terminará 1-1, pero el resultado final es 2-2 (es decir, un empate pero no el marcador exacto), obtienes una bonificación de 2 puntos.</p>
+        <li><b>2 puntos de bonificación en caso de empate no exacto:</b></li>
+        <p>Ejemplo: Si predices que el partido terminará 1-1, pero el resultado final es 2-2 (es decir, un empate pero no el marcador exacto), obtienes una bonificación de 2 puntos.</p>
       </ul>
       <Collapse>
-        <Panel header="Ejemplo 1 (Marcador Exacto)" key="1">
+      <Panel header="Puntos adicionales por acertar las posiciones finales predichas" key="1">
+          <ul>
+            <li><b>18 puntos por acertar el primer lugar predicho</b></li>
+            <li><b>12 puntos por acertar el segundo lugar predicho</b></li>
+            <li><b>6 puntos por acertar el tercer lugar predicho</b></li>
+          </ul>
+        </Panel>
+      <Panel header="Ejemplo 1 (Marcador Exacto)" key="2">
           <ul>
             <li><b>Predicción:</b>Equipo A gana 2-1</li>
             <li><b>Resultado real:</b> Equipo A gana 2-1</li>
@@ -34,7 +43,7 @@ function Rules() {
             <li><b>Total:</b> 12 Puntos</li>
           </ul>
         </Panel>
-        <Panel header="Ejemplo 2 (Empate NO exacto)" key="2">
+        <Panel header="Ejemplo 2 (Empate NO exacto)" key="3">
           <ul>
             <li><b>Predicción:</b>Empate 1-1</li>
             <li><b>Resultado real:</b>Empate 2-2</li>
