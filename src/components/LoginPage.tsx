@@ -115,7 +115,7 @@ function LoginPage() {
         }
       >
         <h1>¡Hola!</h1>
-        <h3>Para comenzar tu experiencia en esta Copa América, recuerda que necesitas realizar una recarga en BetPlay por un valor mínimo de 10.000 pesos. Si ya has hecho la recarga, por favor, ponte en contacto con el administrador de la actividad para resolver cualquier duda.</h3>
+        <h3>Por favor, contacta a los administradores para que tu cuenta pueda ser activada correctamente.</h3>
       </Modal>
     </div>
   );
