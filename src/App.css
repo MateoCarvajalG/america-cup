@@ -129,6 +129,11 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.ant-layout-header{
+  line-height: initial;
+  text-align: center;
+}
 .podium{
   width: 18%;
   height: 75%;
@@ -313,12 +318,18 @@
   .img-logo{
     display: none;
   }
+  .container-podium{
+    width: 100% !important;
+  }
   
 }
 
 @media (max-width:850px) {
   .container-podium{
     height: 230px;
-    width: 100%;
+    width: 60%;
+  }
+  .img-logo{
+    display: none;
   }
 }

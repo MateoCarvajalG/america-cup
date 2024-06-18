@@ -128,18 +128,22 @@ function Match(props:any) {
   )
 
   useEffect( () => {
-    setResultMatch(auth.matchesResults.find((match:any)=> match._id === props.match._id ))
-    const resultspoints = getPointsMatchDiscriminated(
-      {
-        local_team: {result: props.match.local_team.result as number},
-        visiting_team: {result: props.match.visiting_team.result as number}
-      },
-      localScore as number,
-      visitorScore as number,
-    )
-    setPointsPerMatch(resultspoints)
-  },[])
-  
+      setResultMatch(auth.matchesResults.find((match:any)=> match._id === props.match._id ))
+    },[])
+    
+  useEffect(()=>{
+    if(isModalOpen){
+      const resultspoints = getPointsMatchDiscriminated(
+        {
+          local_team: {result: props.match.local_team.result as number},
+          visiting_team: {result: props.match.visiting_team.result as number}
+        },
+        localScore as number,
+        visitorScore as number,
+      )
+      setPointsPerMatch(resultspoints)
+    }
+  },[isModalOpen])
   
   useEffect( () => {
     setLocalStore(resultMatch?.local_score)

@@ -6,7 +6,6 @@ import Podium from '../components/Podium'
 import Match from '../components/Match'
 import Rules from '../components/Rules';
 import ResultSimulator from '../components/ResultSimulator';
-import FifaRank from '../components/FifaRank';
 import { teamsService } from '../services/teams.services';
 import logo1 from '../assets/logo1.png'
 import { AuthContext } from '../context/AuthContext';
@@ -114,11 +113,13 @@ function Game() {
   return (
     <div className="App">
       <Header className='content-header'>
-        <h1>{auth.names}</h1>
-        <h2>{auth.score} puntos</h2>
+        <div>
+          <h2>{auth.names}</h2>
+          <h2>{auth.score} puntos</h2>
+        </div>
       </Header>
       <Drawer 
-        title="Reglas de puntuación"
+        title={isRules ? "Reglas Desafio Futbolero Susuerte-Betplay":"Simulador de resultados"}
         placement="right"
         onClose={onClose}
         open={openDrawerRules}
@@ -133,7 +134,7 @@ function Game() {
           type="primary"
           onClick={()=>showDrawer('rules')}
         >
-          Reglas de puntuación
+         Reglas 
         </Button>
         <Button 
           className='btn-simulator'

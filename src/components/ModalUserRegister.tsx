@@ -53,7 +53,7 @@ function ModalUserRegister(props:any) {
                 },
                 { type: 'string', min: 3,message:"El nombre debe tener como minimo 3 caracteres alfabeticos"}, 
                 { type: 'string', max: 20,message:"El nombre debe tener como maximo 20 caracteres alfabeticos"}, 
-                { pattern:/^[a-zA-ZÀ-ÿ \\u00f1 \\u00d1 \\s]+$/,message:"El nombre debe estar compuesto solo de caracteres alfabeticos"}
+                { pattern:/^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$/,message:"El nombre debe estar compuesto solo de caracteres alfabeticos"},
 
             ]}
             >
@@ -69,7 +69,7 @@ function ModalUserRegister(props:any) {
               },
               { type: 'string', min: 3,message:"El apellido debe tener como minimo 3 caracteres alfabeticos"}, 
               { type: 'string', max: 30,message:"El apellido debe tener como maximo 30 caracteres alfabeticos"}, 
-              { pattern:/^[a-zA-ZÀ-ÿ \\u00f1 \\u00d1 \\s]+$/,message:"El apellido debe estar compuesto solo de caracteres alfabeticos"}
+              { pattern:/^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$/,message:"El apellido debe estar compuesto solo de caracteres alfabeticos"}
 
           ]}
             >
