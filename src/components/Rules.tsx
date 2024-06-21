@@ -9,11 +9,11 @@ function Rules() {
       <Collapse>
       <Panel header='Premiación.' key='1'>
         <h1 style={{color:'gold'}}> 🥇 Primer Puesto 🏆 </h1>
-        <h2 style={{color:'black'}}>60% de la bolsa de premios</h2>
+        <h2 style={{color:'black'}}>50% de la bolsa de premios</h2>
         <h1 style={{color:'gray'}}> 🥈 Segundo Puesto</h1>
-        <h2 style={{color:'black'}}>25% de la bolsa de premios</h2>
+        <h2 style={{color:'black'}}>30% de la bolsa de premios</h2>
         <h1 style={{color:'#CD7F32'}}> 🥉 Tercer Puesto</h1>
-        <h2 style={{color:'black'}}>15% de la bolsa de premios</h2>
+        <h2 style={{color:'black'}}>20% de la bolsa de premios</h2>
       </Panel>
       <Panel header="Reglas de juego." key="2">
         <ul>
